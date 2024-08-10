@@ -6,13 +6,37 @@
 // Import all named exports
 import * as usersAPI from './users-api';
 
-export async function signUp(userData) {
-  // Delegate the AJAX request to the users-api.js
-  // module.
-  const token = await usersAPI.signUp(userData);
-  localStorage.setItem('token', token);
-  return getUser();
+// export async function signUp(userData) {
+//   // Delegate the AJAX request to the users-api.js
+//   // module.
+//   const token = await usersAPI.signUp(userData);
+//   localStorage.setItem('token', token);
+//   return getUser();
+// }
+
+export function getSpotifyToken(hash) {
+if (!hash) return
+  // check if there is a token needed to log in to Spotify
+  let token = window.localStorage.getItem("token")
+  // get the token from the hash
+  if (!token) {
+   token = loginSpotify(hash)
+  }
+  return token;
 }
+
+export function loginSpotify(hash) {
+  const token = hash.substring(1).split("&").find(element => element.startsWith("access_token")).split("=")[1]
+  localStorage.setItem('token', token);
+  return token
+}
+
+  // export function getSpotifyUser() {
+  //   const token = getSpotifyToken();
+  //   // need to send a request to spotify to get my user information
+  //   usersAPI.getSpotifyUser()
+  // }
+
 
 export function getToken() {
   // getItem will return null if the key does not exist
@@ -40,15 +64,15 @@ export function logOut() {
   localStorage.removeItem('token');
 }
 
-export async function login(credentials) {
-  // Delegate the AJAX request to the users-api.js
-  // module.
-  const token = await usersAPI.login(credentials);
-  localStorage.setItem('token', token);
-  return getUser();
-}
+// export async function login(credentials) {
+//   // Delegate the AJAX request to the users-api.js
+//   // module.
+//   const token = await usersAPI.login(credentials);
+//   localStorage.setItem('token', token);
+//   return getUser();
+// }
 
-export function checkToken() {
-  return usersAPI.checkToken()
-    .then(dateStr => new Date(dateStr));
-}
+// export function checkToken() {
+//   return usersAPI.checkToken()
+//     .then(dateStr => new Date(dateStr));
+// }
