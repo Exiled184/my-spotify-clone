@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import * as userService from '../../utilities/users-service';
+import SearchBar from '../SearchBar/SearchBar';
 
 export default function NavBar({ user, setUser }) {
 
@@ -16,6 +17,8 @@ export default function NavBar({ user, setUser }) {
       &nbsp; | &nbsp;
       <span>Welcome, {user.display_name}</span>
       &nbsp; | &nbsp;
+
+      <SearchBar />
       <Link to="" onClick={handleLogOut}>Log Out</Link>
     </nav>
   );
