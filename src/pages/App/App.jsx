@@ -10,12 +10,20 @@ import './App.css';
 
 function App() {
   const [user, setUser] = useState();
+  const [searchKey, setSearchKey] = useState("");
+  const [artists, setArtists] = useState([]);
+  const [tracks, setTracks] = useState([]);
   // const [user, setUser] = useState(usersAPI.loginSpotifyUser(hash));
   return (
     <main className="App">
       {user ?
         <>
-          <NavBar user={user} setUser={setUser} />
+          <NavBar
+            user={user} setUser={setUser}
+            searchKey={searchKey} setSearchKey={setSearchKey}
+            artists={artists} setArtists={setArtists}
+            tracks={tracks} setTracks={setTracks} />
+
           <Routes>
             {/* Route components in here */}
             <Route index path="/" element={<Navigate to={"/home"} />} />

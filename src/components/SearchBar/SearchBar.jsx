@@ -2,10 +2,11 @@ import { useState } from 'react'
 import axios from 'axios';
 
 
-export default function SearchBar() {
-    const [searchKey, setSearchKey] = useState("");
-    const [artists, setArtists] = useState([]);
-    const [track, setTracks] = useState([]);
+export default function SearchBar({
+    searchKey, setSearchKey,
+    artist, setArtists,
+    tracks, setTracks
+}) {
     let token = window.localStorage.getItem("token")
 
     const searchArtist = async (e) => {
