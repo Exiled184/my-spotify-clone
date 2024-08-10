@@ -6,9 +6,9 @@ export default function SearchBar() {
     const [searchKey, setSearchKey] = useState("");
     const [artists, setArtists] = useState([]);
     const [track, setTracks] = useState([]);
+    let token = window.localStorage.getItem("token")
 
     const searchArtist = async (e) => {
-        let token = window.localStorage.getItem("token")
         const { data } = await axios.get("https://api.spotify.com/v1/search", {
             headers: {
                 Authorization: `Bearer ${token}`
@@ -23,7 +23,6 @@ export default function SearchBar() {
     }
 
     const searchTrack = async (e) => {
-        let token = window.localStorage.getItem("token")
         const { data } = await axios.get("https://api.spotify.com/v1/search", {
             headers: {
                 Authorization: `Bearer ${token}`

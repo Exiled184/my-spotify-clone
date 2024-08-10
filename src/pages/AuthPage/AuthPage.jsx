@@ -1,6 +1,4 @@
-import { useState, useEffect } from 'react';
-// import SignUpForm from '../../components/SignUpForm/SignUpForm';
-// import LoginForm from '../../components/LoginForm/LoginForm';
+import { useEffect } from 'react';
 import * as usersAPI from '../../utilities/users-api';
 
 

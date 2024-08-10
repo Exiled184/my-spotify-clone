@@ -4,6 +4,7 @@ import { getUser, getSpotifyToken } from '../../utilities/users-service';
 import AuthPage from '../AuthPage/AuthPage';
 import NavBar from '../../components/NavBar/NavBar';
 import ArtistPage from '../ArtistPage/ArtistPage';
+import HomePage from '../HomePage/HomePage'
 import './App.css';
 
 
@@ -17,7 +18,8 @@ function App() {
           <NavBar user={user} setUser={setUser} />
           <Routes>
             {/* Route components in here */}
-            <Route index path="/" element={<Navigate to={"/artist"} />} />
+            <Route index path="/" element={<Navigate to={"/home"} />} />
+            <Route path="/home" element={<HomePage />} />
             <Route path="/artist" element={<ArtistPage />} />
           </Routes>
         </>
