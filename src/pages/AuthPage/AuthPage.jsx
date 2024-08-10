@@ -31,7 +31,9 @@ export default function AuthPage({ user, setUser }) {
     <Container className="App">
       {!user ?
         <>
-          <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2023/05/Spotify_Primary_Logo_RGB_Black.png" alt="Spotify Logo" />
+          <img
+            src="https://storage.googleapis.com/pr-newsroom-wp/1/2023/05/Spotify_Full_Logo_RGB_Black.png"
+            alt="Spotify Logo" />
           <a className="button" href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>
             Login to Spotify
           </a>
@@ -56,15 +58,7 @@ const Container = styled.div`
   img {
     height: 20vh;
   }
-  button {
-    padding: 1rem 5rem;
-    border-radius: 5rem;
-    background-color: black;
-    color: #49f585;
-    border: none;
-    font-size: 1.4rem;
-    cursor: pointer;
-  }
+ 
   .button {
     padding: 1rem 5rem;
     border-radius: 5rem;

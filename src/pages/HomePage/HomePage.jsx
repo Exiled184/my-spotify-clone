@@ -1,12 +1,19 @@
 import { useState, useEffect } from 'react'
-import SearchBar from '../../components/SearchBar/SearchBar'
+
 import { Routes, Route, Navigate } from 'react-router-dom';
 // import { getUser, getSpotifyToken } from '../../utilities/users-service';
 import AuthPage from '../AuthPage/AuthPage';
-import NavBar from '../../components/NavBar/NavBar';
+
 import ArtistPage from '../ArtistPage/ArtistPage';
 import css from './HomePage'
+
+
 import styled from 'styled-components'
+
+import SideBar from '../../pages/SideBar/SideBar';
+import SearchBar from '../../components/SearchBar/SearchBar'
+import MusicControls from '../MusicControls/MusicControls';
+
 
 
 
@@ -16,14 +23,14 @@ export default function HomePage() {
     return (
         <Container>
             <div className="spotify-body">
-                <h1>Sidebar</h1>
+                <SideBar />
                 <div className="body" >
-                    <NavBar />
                     <h1>Content</h1>
+                    <SearchBar />
                 </div>
             </div>
             <div className="spotify-footer">
-                <h1>Footer</h1>
+                <MusicControls />
             </div>
 
         </Container>

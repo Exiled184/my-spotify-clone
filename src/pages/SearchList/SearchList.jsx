@@ -1,6 +1,8 @@
 
 
-export default function SearchList({ artists, tracks }) {
+
+export default function SearchList({ artists, setArtists }) {
+
 
     const renderArtists = () => {
         return artists.map(artist => {
@@ -29,7 +31,7 @@ export default function SearchList({ artists, tracks }) {
 
     return (
         <div>
-            {renderArtists}
+            {/* {renderArtists()} */}
         </div>
 
 
