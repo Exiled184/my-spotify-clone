@@ -23,14 +23,14 @@ export default function HomePage() {
 
   // let token = window.localStorage.getItem("token")
   const [artists, setArtists] = useState([]);
-
+  const [tracks, setTracks] = useState([]);
   return (
     <Container>
       <div className="spotify-body">
         <SideBar />
         <div className="body" >
-          <SearchBar setArtists={setArtists} />
-          <SearchList artists={artists} />
+          <SearchBar setArtists={setArtists} setTracks={setTracks} />
+          <SearchList artists={artists} tracks={tracks} />
         </div>
       </div>
       <div className="spotify-footer">
