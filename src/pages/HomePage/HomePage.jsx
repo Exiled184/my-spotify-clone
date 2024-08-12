@@ -13,6 +13,7 @@ import styled from 'styled-components'
 import SideBar from '../../pages/SideBar/SideBar';
 import SearchBar from '../../components/SearchBar/SearchBar'
 import MusicControls from '../MusicControls/MusicControls';
+import SearchList from '../SearchList/SearchList';
 
 
 
@@ -20,22 +21,25 @@ import MusicControls from '../MusicControls/MusicControls';
 
 export default function HomePage() {
 
-    return (
-        <Container>
-            <div className="spotify-body">
-                <SideBar />
-                <div className="body" >
-                    <h1>Content</h1>
-                    <SearchBar />
-                </div>
-            </div>
-            <div className="spotify-footer">
-                <MusicControls />
-            </div>
+  // let token = window.localStorage.getItem("token")
+  const [artists, setArtists] = useState([]);
 
-        </Container>
+  return (
+    <Container>
+      <div className="spotify-body">
+        <SideBar />
+        <div className="body" >
+          <SearchBar setArtists={setArtists} />
+          <SearchList artists={artists} />
+        </div>
+      </div>
+      <div className="spotify-footer">
+        <MusicControls />
+      </div>
 
-    )
+    </Container>
+
+  )
 
 
 }
