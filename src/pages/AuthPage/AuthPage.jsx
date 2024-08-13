@@ -6,6 +6,7 @@ import styled from 'styled-components';
 export default function AuthPage({ user, setUser }) {
   const CLIENT_ID = "2ab70426920c4ddb8c114b0979645c3b";
   const REDIRECT_URI = "http://localhost:3000";
+  // const REDIRECT_URI = "https://my-spotify-clone.onrender.com"
   const AUTH_ENDPOINT = "http://accounts.spotify.com/authorize";
   const RESPONSE_TYPE = "token";
 

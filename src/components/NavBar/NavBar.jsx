@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import * as userService from '../../utilities/users-service';
 import styled from 'styled-components';
 
+import Playlist from '../../pages/Playlist/Playlist';
+
 
 export default function NavBar(user, setUser) {
 
@@ -16,12 +18,12 @@ export default function NavBar(user, setUser) {
     <Container>
       <span>Welcome, {user.display_name}</span>
       &nbsp; | &nbsp;
-      <Link to="/home">Home</Link>
+      <Link to="/">Home</Link>
       &nbsp; | &nbsp;
-      <Link to="/artist">Artist</Link>
+      <Link to="/playlists" element={<Playlist />}>Playlists</Link>
       &nbsp; | &nbsp;
       <Link to="" onClick={handleLogOut}>Log Out</Link>
-      &nbsp; | &nbsp;
+
 
     </Container>
   );

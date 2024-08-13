@@ -3,9 +3,8 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 // import { getUser, getSpotifyToken } from '../../utilities/users-service';
 import AuthPage from '../AuthPage/AuthPage';
 import NavBar from '../../components/NavBar/NavBar';
-import ArtistPage from '../ArtistPage/ArtistPage';
 import HomePage from '../HomePage/HomePage'
-
+import styled from 'styled-components';
 
 
 function App() {
@@ -18,12 +17,17 @@ function App() {
     <main className="App">
 
       {user ?
+
+
         <HomePage />
         :
         <AuthPage user={user} setUser={setUser} />
+
       }
     </main >
   );
 }
 
 export default App;
+
+

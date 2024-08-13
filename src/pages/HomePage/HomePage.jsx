@@ -3,8 +3,6 @@ import { useState, useEffect } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom';
 // import { getUser, getSpotifyToken } from '../../utilities/users-service';
 import AuthPage from '../AuthPage/AuthPage';
-
-import ArtistPage from '../ArtistPage/ArtistPage';
 import css from './HomePage'
 
 
@@ -14,9 +12,10 @@ import SideBar from '../../pages/SideBar/SideBar';
 import SearchBar from '../../components/SearchBar/SearchBar'
 import MusicControls from '../MusicControls/MusicControls';
 import SearchList from '../SearchList/SearchList';
+import Playlist from '../Playlist/Playlist';
 
 
-
+// import { Routes, Route } from 'react-router-dom'
 
 
 export default function HomePage() {
@@ -28,19 +27,20 @@ export default function HomePage() {
     <Container>
       <div className="spotify-body">
         <SideBar />
-        <div className="body" >
-          <SearchBar setArtists={setArtists} setTracks={setTracks} />
-          <SearchList artists={artists} tracks={tracks} />
+        <div >
+          <SearchBar className="spotify-search" setArtists={setArtists} setTracks={setTracks} />
+          <Routes >
+            <Route path="/" element={<SearchList artists={artists} tracks={tracks} />} />
+            <Route path="/playlists" element={<Playlist />} />
+          </Routes>
         </div>
       </div>
       <div className="spotify-footer">
         <MusicControls />
       </div>
 
-    </Container>
-
+    </Container >
   )
-
 
 }
 
@@ -51,55 +51,20 @@ const Container = styled.div`
   overflow: hidden;
   display: grid;
   grid-template-rows: 85vh 15vh;
-  .spotify-body {
+  .spotify-body{
     display: grid;
     grid-template-columns: 15vw 85vw;
     height: 100%;
     width: 100%;
     background: linear-gradient(transparent, rgba(0, 0, 0, 1));
     background-color: rgb(32, 87, 100);
-    .body {
-      height: 100%;
-      width: 100%;
-      overflow: auto;
-      /* &::-webkit-scrollbar {
+    overflow:auto;
+      &::-webkit-scrollbar {
         width: 0.7rem;
         max-height: 2rem;
         &-thumb {
-          background-color: rgba(255, 255, 255, 0.6);
+          background-color: rgba(255, 255, 255, 0.6); 
         }
-      } */
-    }
-  }
+      }}
 `;
 
-
-
-// export default function HomePage() {
-//     const [user, setUser] = useState();
-//     const [searchKey, setSearchKey] = useState("");
-//     const [artists, setArtists] = useState([]);
-//     const [tracks, setTracks] = useState([]);
-//     const [user, setUser] = useState(usersAPI.loginSpotifyUser(hash));
-
-//     return (
-//         <main className="App">
-
-//             {user ?
-//                 <>
-//                     <NavBar
-//                         user={user} setUser={setUser} />
-
-//                     <Routes>
-//                         {/* Route components in here */}
-//                         <Route index path="/" element={<Navigate to={"/home"} />} />
-//                         <Route path="/home" element={<HomePage />} />
-//                         <Route path="/artist" element={<ArtistPage />} />
-//                     </Routes>
-//                 </>
-//                 :
-//                 <AuthPage user={user} setUser={setUser} />
-//             }
-//         </main >
-//     );
-// }

@@ -2,7 +2,13 @@ const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
+const { BiBody } = require('react-icons/bi');
 
+
+const Playlist = require('./models/playlist');
+
+
+const playlistController = require('./controllers/playlistController');
 
 require('dotenv').config();
 // Connect to db after the dotenv above
@@ -24,11 +30,18 @@ app.use(require('./config/checkToken'));
 // Put all API routes here (before the catch-all)
 app.use('/api/users', require('./routes/api/users'));
 
+// routing
+app.use('/playlist', require('./routes/playlist'))
+
 // "catch-all" route that will match all GET requests
 // that don't match an API route defined above
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
+
+
+
+
 
 const port = process.env.PORT || 3001;
 

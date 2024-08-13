@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import PlayerControls from "../../components/PlayerControls/PlayerControls";
 
 export default function MusicControls() {
 
@@ -7,8 +7,8 @@ export default function MusicControls() {
     return (
 
         <Container>
-            {/* <CurrentTrack />
-            <PlayerControls /> */}
+            {/* <CurrentTrack /> */}
+            <PlayerControls />
         </Container>
     )
 }
