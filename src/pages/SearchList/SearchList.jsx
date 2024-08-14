@@ -51,6 +51,7 @@ export default function SearchList({ artists, tracks }) {
 
                     {<img width={width} height={height} src={url} alt="" />}
                     <div style={{ color: 'white' }}>{name}</div>
+                    <button>Add to playlist</button>
                 </div>
 
             )

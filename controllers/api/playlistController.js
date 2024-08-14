@@ -21,15 +21,17 @@ const createPlaylist = async (req,res) => {
   }
 
 const updatePlaylist = async (req, res) => {
-    const playlistID = req.body.id;
+    const playlistID = req.params.id;
   
     const title = req.body.title;
   
-    await Playlist.findByIdAndUpdate(playlistID, {
+    const result = await Playlist.findByIdAndUpdate(playlistID, {
       title: title,
-    })
-    const playlist = await Playlist.find(playlistID)
-    res.json({playlist: playlist})
+    },{returnDocument:"after"})
+    console.log(result)
+    console.log(playlistID)
+   
+    res.json({playlist: result})
   }
 
 const deletePlaylist = async (req,res) => {
