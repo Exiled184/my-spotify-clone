@@ -18,20 +18,12 @@ export default function Playlist() {
 
     // functions
     const fetchPlaylists = async () => {
-        const res = await axios.get("https:localhost:3000/playlists")
-        // const res = await axios.get("https://my-spotify-clone.onrender.com/playlists")
+        const res = await axios.get("http://localhost:3000/api/playlists")
+        // const res = await axios.get("https://my-spotify-clone.onrender.com/api/playlists")
         setPlaylists(res.data.playlists)
         console.log(res)
     }
-    // const fetchPlaylists = async () => {
-    //     // const fetchedPlaylist = await sendRequest('/api/playlists', 'GET');
-    //     try {
-    //         const res = await playlistAPI.fetchPlaylists();
-    //         setPlaylists(res);
-    //     } catch (error) {
-    //         console.error("error, no playlists", error)
-    //     }
-    // }
+
 
     const updateCreateFormField = (e) => {
         const { name, value } = e.target
@@ -44,8 +36,8 @@ export default function Playlist() {
 
     const createPlaylist = async (e) => {
         e.preventDefault();
-        const res = await axios.post("https:localhost:3000/playlists", createForm)
-        // const res = await axios.post("https://my-spotify-clone.onrender.com/playlists", createForm)
+        const res = await axios.post("http://localhost:3000/api/playlists", createForm)
+        // const res = await axios.post("https://my-spotify-clone.onrender.com/api/playlists", createForm)
         console.log(res)
     }
 

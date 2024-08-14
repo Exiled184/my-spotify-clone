@@ -2,6 +2,7 @@ const Playlist = require('../../models/playlist')
 
 const fetchPlaylists = async (req,res) => {
   const playlists = await Playlist.find()
+  console.log(playlists)
   res.json({playlists : playlists})
 }
 
