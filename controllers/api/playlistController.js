@@ -1,4 +1,4 @@
-const Playlist = require('../models/playlist')
+const Playlist = require('../../models/playlist')
 
 const fetchPlaylists = async (req,res) => {
   const playlists = await Playlist.find()
@@ -14,7 +14,7 @@ const fetchPlaylist = async (req,res) => {
 const createPlaylist = async (req,res) => {
     const title = req.body.title;
     const playlist = await Playlist.create({
-      title: title
+      title: title,
     });
     res.json({playlist: playlist})
   }

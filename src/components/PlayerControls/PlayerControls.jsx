@@ -3,31 +3,31 @@ import { useState } from 'react'
 import { } from 'react-icons/io5'
 
 export default function PlayerControls() {
-    const { stateControl, setStateControl } = { useState }
+  const { stateControl, setStateControl } = { useState }
 
-    return (
+  return (
 
-        <Container>
+    <Container>
 
-            <div className="shuffle">
-                shuffle
-            </div>
-            <div className="previous">
-                previous
-            </div>
-            <div className="play/pause">
-                {stateControl ? <hello /> : <hello />}
-            </div>
-            <div className="forward">
-                forward
-            </div>
-            <div className="repeat">
-                repeat
-            </div>
+      <div className="shuffle">
+        shuffle
+      </div>
+      <div className="previous">
+        previous
+      </div>
+      <div className="play/pause">
+        {/* {stateControl ? <hello /> : <hello />} */}
+      </div>
+      <div className="forward">
+        forward
+      </div>
+      <div className="repeat">
+        repeat
+      </div>
 
 
-        </Container>
-    )
+    </Container>
+  )
 }
 
 const Container = styled.div`
